@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스포츠 브랜드 인트로</title>
+<!--     <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">본문용 --> 
+    <link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet"><!-- 인트로용 -->
+    <!-- <script src="js/index.js"></script> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    
+    <div id="layout">
+        <div id="mind_key">
+            <strong></strong>
+            <div id="background"></div>
+    </div>
+
+    <div id="main_div">
+        <section id="main_img">
+            <h2>메인 이미지</h2>
+            <img src="images/filed_1.jpg" alt="인트로 메인 이미지1">
+            <img src="images/field_right.jpg" alt="인트로 메인 이미지2">
+            <img src="images/swim.jpg" alt="인트로 메인 이미지3">
+            <img src="images/sky.jpg" alt="인트로 메인 이미지4">
+        </section>
+        <section id="main_video">
+        <h2>인트로 영상</h2>
+        <div id="touch_video">
+            <a href="#"><video src="images/basketball.mp4" autoplay muted loop></video></a>
+        </div>
+        <a href="#"></a>
+    </section>
+    
+    <!--메뉴바-->
+    <div class="material-symbols-outlined">sports_baseball</div>
+     <div id="mainbar_menu">
+        <ul>
+            <li>
+                <a href="#" class="mainMenu">News</a>
+                <nav class="subMenu">
+                    <a href="#">Latest News</a>
+                    <a href="#">Match Results</a>
+                    <a href="#">Interviews</a>
+                </nav>
+            </li>
+
+            <li>
+                <a href="#" class="mainMenu">Schedule</a>
+                <nav class="subMenu">
+                    <a href="#">Today's Matches</a>
+                    <a href="#">This Week's Matches</a>
+                    <a href="#">Full Schedule</a>
+                </nav>
+            </li>
+
+            <li>
+                <a href="#" class="mainMenu">Players</a>
+                <nav class="subMenu">
+                    <a href="#">Player Profiles</a>
+                    <a href="#">Season Stats</a>
+                    <a href="#">Injury Updates</a>
+                </nav>
+            </li>
+
+            <li>
+                <a href="#" class="mainMenu">League</a>
+                <nav class="subMenu">
+                    <a href="#">Standings</a>
+                    <a href="#">Team Info</a>
+                    <a href="#">Highlights</a>
+                </nav>
+            </li>
+
+            <li>
+                <a href="#" class="mainMenu">Multimedia</a>
+                <nav class="subMenu">
+                    <a href="#">Videos</a>
+                    <a href="#">Photo Gallery</a>
+                    <a href="#">Podcasts</a>
+                </nav>
+            </li>
+
+            <li>
+                <a href="#" class="mainMenu">Community</a>
+                <nav class="subMenu">
+                    <a href="#">Fan Forum</a>
+                    <a href="#">Events</a>
+                    <a href="#">Polls</a>
+                </nav>
+            </li>
+
+    </ul>
+    
+     </div>
+    
+    
+    </div>
+    <!-- 마우스 이벤트 텍스트 -->
+    <div class="mouseover_text">
+        <div id="text_1">
+            <a href="#">Challenge</a>
+            <a href="#">Unity</a>
+            <a href="#">Speed</a>
+            <a href="#">Victory</a>
+            <a href="#">Global</a>
+            <a href="#">Dream</a>
+        </div>
+
+          <div id="text_2">
+            <a href="#">Endurance</a>
+            <a href="#">Respect </a>
+            <a href="#">Passion</a>
+            <a href="#">Courage</a>
+            <a href="#">Courage</a>
+            <a href="#">Focus</a>
+        </div>
+    </div>
+
+    <section id="slideArea">
+        <div id="slideWrapper">
+            <div id="slide">
+                <a href="#"><img src="images/ba_1.jpg" alt="농구공 이미지1"></a>
+                <a href="#"><img src="images/ba_2.jpg" alt="농구공 이미지2"></a>
+                <a href="#"><img src="images/ba_3.jpg" alt="농구공 이미지3"></a>
+                <a href="#"><img src="images/ba_4.jpg" alt="농구공 이미지4"></a>
+                <a href="#"><img src="images/ba_1.jpg" alt="농구공 이미지5"></a>
+                <a href="#"><img src="images/ba_2.jpg" alt="농구공 이미지6"></a>
+            </div>
+        </div>
+    </section>
+<!-- 
+    <div id="desktop_menu">
+        <div class="material-symbols-outlined">arrow_back_ios</div>
+        <div class="material-symbols-outlined">arrow_forward_ios</div>
+    </div>
+    -->
+    </div><!-- 레이아웃 끝 -->
+   <div id="click_subMenu"><img src="images/ba_1.jpg" alt="따라다니는 이미지"></div>
+   <div id ="cursor"></div>
+</body>
+
+
+
+
+
+    
+
+
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+    /* 따라다니는 마우스 커서 */
+    const cursor = document.querySelector("#cursor");
+    document.addEventListener("mousemove",e=>{
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+        
+    });
+
+    /* 인트로 타자 효과*/
+    const keyboard = document.querySelector("#mind_key strong")
+    const text = "It starts with a dream.";
+    let i = 0;
+
+    const typing = ()=>{
+        if(i<text.length){
+            keyboard.append(text[i++]);
+        }else{
+            clearInterval(timer_1);
+
+            const mindKey = document.querySelector("#mind_key");
+            mindKey.style.overflow = "hidden";
+
+            window.scrollTo({
+                top : mindKey.offsetHeight,
+                behavior : "smooth"
+            });
+        }
+    };;
+    const timer_1 = setInterval(typing,200);
+
+  /*   슬라이드 메뉴 */
+    const slide = document.querySelector("#slide")
+    console.log(slide);
+    const rightMove_callback =()=>{
+        slide.style.transition = "none";
+        slide.style.left = "-170px";
+        slide.prepend(slide.lastElementChild);
+    }
+    const rightMove =()=>{
+        slide.style.transition = "left 1s";
+        slide.style.left = "0px"; 
+        setTimeout(rightMove_callback,1000);
+    }
+    setInterval(rightMove,2500); 
+
+    /* 슬라이드에 마우스를 대면 이미지가 커진다 */
+    const slideImg = [...document.querySelectorAll("#slide img")]
+   
+    slideImg.forEach((i)=>{
+        i.addEventListener("mouseenter",()=>{
+            if(!i.classList.contains("act")){
+                i.classList.add("act");
+            }
+        });
+        i.addEventListener("mouseleave",()=>{
+            i.classList.remove("act");
+        })
+    })
+    
+
+/* 메인 배경화면 fade 기능 */
+    const main_img = [...document.querySelectorAll("#main_img img")];
+    let fade = 0;
+    const fadeSlide = ()=>{
+        main_img.forEach(i=>{
+            i.style.opacity = 0;
+            i.style.transition = "opacity 5s"
+        });
+        fade ++;
+        main_img[fade = (fade > 2 ? 0 : fade)].style.opacity =1;
+    }
+    setInterval(fadeSlide,6000);
+
+
+/* 텍스트를 클릭하면 해당 영상이 보인다. */
+    const mouseover_text = document.querySelectorAll(".mouseover_text a")
+    const preview = document.querySelector("#touch_video video");
+
+    const videoMap = {
+        challenge:"images/global.mp4",
+        unity :"images/board.mp4",
+        speed : "images/basketball.mp4",
+        victory : "images/basketball.mp4",
+        global : "images/hight.mp4",
+        dream : "images/p.mp4",
+        endurance : "images/s.mp4",
+        respect : "images/tennis.mp4",
+        passion : "images/basketball.mp4",
+        courage : "images/basketball.mp4",
+        focus : "images/basketball.mp4",
+    }
+
+    mouseover_text.forEach((link,j)=>{
+        link.addEventListener("click",e=>{
+            e.preventDefault();
+            const content = link.textContent.toLowerCase().trim();
+
+            if(videoMap[content]){
+                preview.src = videoMap[content];
+                preview.load();
+                preview.play();
+            }
+        });
+    });
+    
+    /*메뉴바 토글*/
+    const menu_btn = document.querySelector(".material-symbols-outlined");
+    const menu_contents = document.querySelector("#mainbar_menu");
+    
+    const toggleMenu = ()=>{
+        const isOpen = menu_contents.classList.contains("act");
+        if(isOpen){
+            menu_contents.classList.remove("act");
+            menu_btn.textContent = "sports_baseball";
+            /* document.body.style.overflow = "auto"; */
+        }else{
+             menu_contents.classList.add("act");
+            menu_btn.textContent = "close";
+            /* document.body.style.overflow = "hidden"; */
+        }
+    }
+    menu_btn.addEventListener("click",toggleMenu);
+
+
+   /* 서브 메뉴 항목을 클릭하면 해당 썸네일이 보인다. */
+    const subMenu_links = [...document.querySelectorAll(".subMenu a")];
+    const click_subMenus = document.querySelector("#click_subMenu");
+    const click_img = document.querySelector("#click_subMenu img");
+    
+    subMenu_links.forEach((i,j)=>{
+        i.addEventListener("mouseenter",()=>{
+            click_img.src = `images/ba_${j+1}.jpg`;
+            click_subMenus.style.display = "block";
+
+            document.addEventListener("mousemove",moveImage);
+        });
+        i.addEventListener("mouseleave",()=>{
+            click_subMenus.style.display = "none";
+            document.removeEventListener("mousemove",moveImage);
+        });
+
+    });
+    function moveImage (e){
+        const x = e.pageX+20;
+        const y = e.pageY+20;
+        click_subMenus.style.left = `${x}px`;
+        click_subMenus.style.top = `${y}px`;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    
+
+}); //js end
+</script>
+</html>

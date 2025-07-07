@@ -1,0 +1,455 @@
+@charset "utf-8";
+
+
+* {
+    padding: 0; margin: 0; box-sizing: border-box;
+    cursor: none;
+}
+/*폰트 설정 */
+body{
+    font-family: "Alatsi", sans-serif;
+   
+}
+
+
+#layout{
+    max-width: 1440px; width: 100%; height: 1600px;
+    margin: auto;
+    position: relative;
+    
+}
+
+ li{
+        list-style: none;
+    }
+
+a{
+    text-decoration: none; color: black;
+}
+/* 따라다니는 마우스 커서 */
+#cursor{
+    position: fixed;
+    background: black;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    z-index: 10000000000;
+}
+
+/* 인트로 타자 */
+#mind_key{
+    position: relative;
+    width: 100%; height: 800px;
+    overflow: visible;
+    transition: height ease;
+    /* display: none; */
+
+}
+
+#mind_key>strong{
+    /* border: 3px solid rgb(61, 181, 255); */
+    position: absolute;
+    width: 100%;
+    font-size: 32pt;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    letter-spacing: 1.1px;
+    z-index: 88;
+}
+
+/*인트로 메인 이미지*/
+#main_img>h2{
+    display: none;
+}
+#main_img{
+    width: 1440px; width:100%; height:800px; position: relative; 
+    
+}
+
+#main_img>img{
+    max-width: 1440px; width: 100%;
+    position: absolute; height:800px;
+    transition: opacity 4s ease-in-out;
+}
+
+/* 비디오 */
+#main_video{
+    position: absolute;
+    width: 100%;
+    top: 0; right: 0;
+    margin-left: auto;
+    width: 720px; height: 800px;
+/*     border: 5px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main_div{
+    position: relative;
+}
+
+#main_video>h2{
+    display: none;
+}
+
+#touch_video video{
+    display: block;
+    width: 360px; height: 210px; object-fit: cover;
+    z-index: 999;
+}
+
+.mouseover_text{
+    position: absolute;
+    width: 100%;
+    top: 0; left: 0;
+    margin-left: auto;
+    width: 720px; height: 800px;
+/*     border: 5px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: difference;
+    top: 800px;
+
+}
+
+.mouseover_text a{
+    color: rgb(133, 129, 112);
+    font-weight: 570;
+/*     border: 1px solid red; */
+     
+}
+
+#text_1,#text_2{
+/*     border: 1px solid rgb(0, 13, 255); */
+    display: flex;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 14pt;
+    line-height: 4;
+    text-align: center;
+   
+}
+
+#text_1{
+    margin-right: 140px;
+}
+
+/* 메인페이지 슬라이드 */
+#slideArea>h3{
+    display: none;
+}
+#slideArea{
+    position: relative;
+    width: 100%;
+/*     border: 2px solid blue; */
+    bottom: 130px;
+    
+}
+#slideWrapper{
+    position: relative;
+    width: 430px;
+    height: 110px;
+/*     border: 3px solid red; */
+     margin: auto;
+    overflow: hidden;
+}
+#slide{
+    position: relative;
+    display: flex;
+    align-items: center;
+   transition: left 1s;
+
+     left: -170px; 
+    gap: 80px;
+
+}
+#slide a{
+    display: block;
+    width: 90px;
+    height: 90px;
+    
+    flex-shrink: 0;
+ 
+}
+#slide img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; 
+    
+}
+#slide img.act{
+    width: 120%;
+    height: 120%;
+    margin-top: -10px;
+    object-position: center center;
+
+}
+
+#desktop_menu{
+    border: 1px solid red;
+}
+/* ===================================================================== */
+
+/* 메뉴바 */
+
+.material-symbols-outlined{
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    z-index: 999999;
+    }
+   
+    #mainbar_menu{
+        display: none;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        position: absolute;
+        width: 80%;
+        height: 85%;
+        margin: auto;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: top 0.5s;
+        z-index: 5;
+    }
+    /* 메뉴바 동적 엘리먼트 */
+    #mainbar_menu.act{
+        display: block;
+    }
+    #mainbar_menu ul{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        /* border: 1px solid red; */
+    }
+    .mainMenu{
+        font-size: 1.4rem;
+        font-weight: 400;
+        padding: 30px 50px;
+        margin-top: 20px;
+        display: block;
+        color: #333;
+       /*  border: 1px solid blue; */
+    }
+
+    .subMenu{
+        padding: 50px 0;
+        margin: auto;
+       /*  border: 2px solid rgb(255, 213, 0); */
+        
+    }
+
+    .subMenu a{
+        display: block;
+        text-align: center;
+        padding: 70px 0;
+        color: #333;
+       /*  border: 1px solid rgb(50, 170, 64); */
+    }
+
+    /* 메뉴바 호버 */
+        li:hover .mainMenu,.subMenu a:hover{
+        color: black;
+        text-decoration: underline;
+    }
+    
+    /* 메뉴바 클릭하면 해당 썸네일이 보임 */
+    #click_subMenu{
+        position: absolute;
+        display: none;
+        /* pointer-events: none; */
+        z-index: 99;
+    }
+   #click_subMenu img{
+    width: 80px; height: 80px;
+    object-fit: cover;
+   }
+
+
+
+
+
+
+
+
+   /* 반응형 */
+    /* ~ */
+   /*  ~1024px*/
+   @media(max-width:1024px){
+        #layout{
+        max-width: 1024px;
+    }
+    #main_img{
+    max-width: 1024px; width:100%; height: 600px;
+    }
+        #main_img>img{
+            max-width: 1024px; width:100%; height: 600px;
+            object-fit: cover;
+        }
+    
+
+    .mouseover_text{
+        width: 512px;  height: 600px;
+
+    }
+    /* 키보드 효과 */
+    #mind_key{
+        position: relative;
+        width: 100%; height: 600px;
+        transition: height 0.5s ease;
+
+    }
+    #mind_key>strong{
+        font-size: 28pt;
+
+    }
+    /* 메인 이미지 위 텍스트 */
+    #text_1,#text_2{
+        font-size: 10pt;
+        line-height: 3;
+    }
+
+    #text_1{
+        margin-right: 140px;
+    }
+
+
+    #main_video{
+        width: 414px; height: 600px;
+    }
+
+    .mouseover_text{
+        position: absolute;
+        width: 100%;
+        top: 0; left: 0;
+        margin-left: auto;
+        width: 512px; height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        mix-blend-mode: difference;
+        top: 600px;
+
+    }
+    /* 슬라이드 */
+    #slideArea{
+        bottom: 120px;
+    }
+
+    #slide{
+        margin: auto;
+        width: 400px;
+        height: 80px;
+        display: flex;
+        overflow: hidden;
+        
+    }
+    #slide a:not(:last-child){
+        margin-right: 80px;
+    
+    }
+    #slide img{
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        display: block;
+        justify-content: space-between;
+        
+         }  
+    
+    /* 메뉴바 */
+    .material-symbols-outlined{
+        font-size: 1.4rem;
+    }
+    }
+
+
+
+    /***************************** */
+
+    /* ~414px ==> 작은 모바일*/
+    @media(max-width:414px){
+        #layout{
+        max-width: 414px; width: 100%;
+        }
+
+         #main_img{
+        max-width:  414px; width:100%; 
+    }
+        #main_img>img{
+            max-width:  414px; width:100%; 
+        }
+
+        /* 타자치는 부분 */
+        #mind_key{
+            width:414px; height: 740px;
+        }
+
+        #mind_key>strong{
+        font-size: 20pt;
+    }
+
+    #main_img{
+         width: 414px; height: 740px; 
+    }
+
+    #main_img>img{
+        width: 414px; height: 740px; object-fit: cover;
+    }
+    
+
+        #main_video{
+        width: 414px; height: 200px; 
+        top: 50%;
+    }
+
+        #touch_video video{
+            display: block;
+            width: 240px; height: 140px; object-fit: cover;
+            z-index: 999;
+        }
+
+    .mouseover_text{
+        width: 414px; height: 400px;
+        margin-top: 170px;
+    }
+
+   
+
+    #text_1,#text_2{
+        display: flex;
+        flex-direction: column;
+        font-weight: 100;
+        font-size: 8pt;
+        line-height: 4;
+        text-align: center;
+
+    
+    }
+
+  
+    #slide{
+        width: 90px;     
+}
+
+
+
+
+
+    }
+
+
+
